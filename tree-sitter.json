@@ -9,6 +9,9 @@
       "file-types": [
         "adder"
       ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
       "injection-regex": "^adder$",
       "class-name": "TreeSitterAdder"
     }
