@@ -1,7 +1,7 @@
 {
-  "name": "tree-sitter-adder",
+  "name": "tree-sitter-snake",
   "version": "0.1.0",
-  "description": "Adder grammar for tree-sitter",
+  "description": "Snake grammar for tree-sitter",
   "type": "module",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "incremental",
     "parsing",
     "tree-sitter",
-    "adder"
+    "snake"
   ],
   "files": [
     "grammar.js",

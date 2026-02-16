@@ -1,5 +1,5 @@
 /**
- * @file Adder grammar for tree-sitter
+ * @file Snake grammar for tree-sitter
  * @author Neven Johnson <neven@umich.edu>
  * @license MIT
  */

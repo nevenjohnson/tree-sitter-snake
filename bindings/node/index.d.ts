@@ -25,10 +25,10 @@ type NodeInfo =
  *
  * @example
  * import Parser from "tree-sitter";
- * import adder from "tree-sitter-adder";
+ * import snake from "tree-sitter-snake";
  *
  * const parser = new Parser();
- * parser.setLanguage(adder);
+ * parser.setLanguage(snake);
  */
 declare const binding: {
   /**

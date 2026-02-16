@@ -1,12 +1,12 @@
 from unittest import TestCase
 
 from tree_sitter import Language, Parser
-import tree_sitter_adder
+import tree_sitter_snake
 
 
 class TestLanguage(TestCase):
     def test_can_load_grammar(self):
         try:
-            Parser(Language(tree_sitter_adder.language()))
+            Parser(Language(tree_sitter_snake.language()))
         except Exception:
-            self.fail("Error loading Adder grammar")
+            self.fail("Error loading Snake grammar")

@@ -1,4 +1,4 @@
-"""Adder grammar for tree-sitter"""
+"""Snake grammar for tree-sitter"""
 
 from importlib.resources import files as _files
 
