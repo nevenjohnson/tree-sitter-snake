@@ -1,2 +1,0 @@
-def main(x):
-	x * 1 + 2 - add1(x)

@@ -1,13 +1,20 @@
-"def" @keyword
-"let" @keyword
-"in" @keyword
+[
+ "def"
+ "let"
+ "in"
+ ] @keyword
+[
+ "if"
+ "else"
+ ] @keyword.conditional
 (number) @number
 (identifier) @variable
 "main" @function
+(decl name: (identifier) @function)
+(ids (identifier) @variable.parameter)
+(binop_expr call: (identifier) @function)
 [
-  "+"
-  "-"
-  "*"
+  (prim2)
   "="
  ] @operator
 (source_file (identifier) @variable.parameter)

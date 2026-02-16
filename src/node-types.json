@@ -25,11 +25,38 @@
   {
     "type": "binop_expr",
     "named": true,
-    "fields": {},
+    "fields": {
+      "call": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "exprs",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "binop_expr",
+          "named": true
+        },
         {
           "type": "expr",
           "named": true
@@ -54,6 +81,55 @@
     }
   },
   {
+    "type": "decl",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "ids",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decls",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "decl",
+          "named": true
+        },
+        {
+          "type": "decls",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr",
     "named": true,
     "fields": {},
@@ -70,7 +146,49 @@
           "named": true
         },
         {
+          "type": "decls",
+          "named": true
+        },
+        {
           "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exprs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "exprs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ids",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ids",
           "named": true
         }
       ]
@@ -107,6 +225,18 @@
     }
   },
   {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -135,7 +265,27 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {
@@ -143,12 +293,28 @@
     "named": false
   },
   {
+    "type": "and",
+    "named": false
+  },
+  {
     "type": "def",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "false",
     "named": false
   },
   {
     "type": "identifier",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "in",
@@ -168,6 +334,14 @@
   },
   {
     "type": "sub1",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   }
 ]

@@ -7,7 +7,8 @@
       "title": "Snake",
       "scope": "source.snake",
       "file-types": [
-        "adder"
+        "adder",
+        "boa"
       ],
       "highlights": [
         "queries/highlights.scm"
@@ -17,7 +18,7 @@
     }
   ],
   "metadata": {
-    "version": "1.0.1",
+    "version": "2.0.0",
     "license": "MIT",
     "description": "Snake grammar for tree-sitter",
     "authors": [

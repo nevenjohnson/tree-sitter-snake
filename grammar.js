@@ -8,7 +8,7 @@
 // @ts-check
 
 export default grammar({
-  name: "adder",
+  name: "boa",
 
   rules: {
     source_file: $ => seq(
@@ -21,10 +21,31 @@ export default grammar({
       $.expr
     ),
 
+    // let_expr: $ => seq(
+    //   "let",
+    //   $.bindings,
+    //   "in",
+    //   $.expr,
+    // ),
+    //
     expr: $ => choice(
       seq(
         "let",
         $.bindings,
+        "in",
+        $.expr,
+      ),
+      seq(
+        "if",
+        $.expr,
+        ":",
+        $.expr,
+        "else",
+        ":",
+        $.expr,
+      ),
+      seq(
+        $.decls,
         "in",
         $.expr,
       ),
@@ -49,6 +70,14 @@ export default grammar({
     binop_expr: $ => choice(
       $.number,
       $.identifier,
+      "true",
+      "false",
+      prec(8,
+        seq(
+          "!",
+          $.binop_expr,
+        ),
+      ),
       prec.left(1,
         seq(
           $.expr,
@@ -62,6 +91,17 @@ export default grammar({
         $.expr,
         ")",
       ),
+      field("call", seq(
+        $.identifier,
+        "(",
+        ")",
+      )),
+      field("call", seq(
+        $.identifier,
+        "(",
+        $.exprs,
+        ")",
+      )),
       seq(
         "(",
         $.expr,
@@ -75,9 +115,64 @@ export default grammar({
     ),
 
     prim2: $ => choice(
-      prec(2, "+"),
-      prec(2, "-"),
-      prec(3, "*"),
+      prec(7, "*"),
+      prec(6, "+"),
+      prec(6, "-"),
+      prec(5, ">"),
+      prec(5, "<"),
+      prec(5, ">="),
+      prec(5, "<="),
+      prec(4, "=="),
+      prec(4, "!="),
+      prec(3, "&&"),
+      prec(2, "||"),
+    ),
+
+    decls: $ => choice(
+      seq(
+        $.decls,
+        "and",
+        $.decl,
+      ),
+      $.decl,
+    ),
+
+    decl: $ => choice(
+      seq(
+        "def",
+        field("name", $.identifier),
+        "(",
+        $.ids,
+        ")",
+        ":",
+        $.expr,
+      ),
+      seq(
+        "def",
+        field("name", $.identifier),
+        "(",
+        ")",
+        ":",
+        $.expr,
+      ),
+    ),
+
+    ids: $ => choice(
+      $.identifier,
+      seq(
+        $.identifier,
+        ",",
+        $.ids,
+      ),
+    ),
+
+    exprs: $ => choice(
+      $.expr,
+      seq(
+        $.expr,
+        ",",
+        $.exprs,
+      ),
     ),
 
     identifier: $ => /[a-zA-Z][a-zA-Z0-9]*/,
