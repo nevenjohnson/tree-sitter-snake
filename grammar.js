@@ -8,7 +8,7 @@
 // @ts-check
 
 export default grammar({
-  name: "boa",
+  name: "snake",
 
   rules: {
     source_file: $ => seq(
