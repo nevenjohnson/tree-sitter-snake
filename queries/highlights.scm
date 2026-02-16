@@ -14,6 +14,10 @@
 (ids (identifier) @variable.parameter)
 (binop_expr call: (identifier) @function)
 [
+ "add1"
+ "sub1"
+ ] @function.builtin
+[
   (prim2)
   "="
  ] @operator
