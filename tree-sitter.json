@@ -12,12 +12,12 @@
       "highlights": [
         "queries/highlights.scm"
       ],
-      "injection-regex": "^adder$",
+      "injection-regex": "^snake$",
       "class-name": "TreeSitterSnake"
     }
   ],
   "metadata": {
-    "version": "0.1.0",
+    "version": "1.0.1",
     "license": "MIT",
     "description": "Snake grammar for tree-sitter",
     "authors": [
