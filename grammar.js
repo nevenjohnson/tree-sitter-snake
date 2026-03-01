@@ -80,7 +80,7 @@ export default grammar({
       prec(3, "*"),
     ),
 
-    identifier: $ => /[a-zA-Z][a-zA-Z0-9]*/,
+    identifier: $ => /[a-zA-Z][a-zA-Z0-9_]*/,
 
     number: $ => /[+-]?[0-9]+/,
   }
