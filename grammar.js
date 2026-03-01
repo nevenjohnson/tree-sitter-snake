@@ -11,7 +11,15 @@ export default grammar({
   name: "snake",
 
   rules: {
-    source_file: $ => seq(
+    source_file: $ => choice(
+      seq(
+        $.externs,
+        $.main,
+      ),
+      $.main,
+    ),
+
+    main: $ => seq(
       "def",
       "main",
       "(",
@@ -21,13 +29,22 @@ export default grammar({
       $.expr
     ),
 
-    // let_expr: $ => seq(
-    //   "let",
-    //   $.bindings,
-    //   "in",
-    //   $.expr,
-    // ),
-    //
+    extern: $ => seq(
+      "extern",
+      field("name", $.identifier),
+      "(",
+      $.ids,
+      ")",
+    ),
+
+    externs: $ => choice(
+      $.extern,
+      seq(
+        $.extern,
+        $.externs,
+      ),
+    ),
+
     expr: $ => choice(
       seq(
         "let",

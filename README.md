@@ -1,6 +1,6 @@
 # Overview
 
-This repo provides a tree-sitter grammar for the Snake language used in EECS 483 at the University of Michigan. It supports multiple versions of the language (Adder, Boa). As of now, there are 2 versions of the grammar for Adder and Boa that can be found by tag. However, since Boa is a superset of the Adder functionality, it should suffice to only use the Boa grammar.
+This repo provides a tree-sitter grammar for the Snake language used in EECS 483 at the University of Michigan. It supports multiple versions of the language (Adder, Boa, Cobra). As of now, there are 3 versions of the grammar for Adder, Boa, and Cobra that can be found by tag. However, since Cobra is a superset of the others, it should suffice to only use the Cobra grammar.
 
 # Installation
 
@@ -23,7 +23,8 @@ vim.filetype.add({
     extension = {
 	adder = "snake",
 	boa = "snake",
+	cobra = "snake",
     }
 })
 ```
-Then, you should be able to install the Snake parser using `:TSInstall snake`. Unfortunately nvim-treesitter will not install tree-sitter queries by default. So to get full syntax highlighting support, you manually need to add the `queries/highlights.scm` file to your neovim queries (e.g. put this file in `~/.config/nvim/queries/snake/highlights.scm`). This should allow you to see syntax highlighting when you open files with the extension `.adder` or `.boa`.
+Then, you should be able to install the Snake parser using `:TSInstall snake`. Unfortunately nvim-treesitter will not install tree-sitter queries by default. So to get full syntax highlighting support, you manually need to add the `queries/highlights.scm` file to your neovim queries (e.g. put this file in `~/.config/nvim/queries/snake/highlights.scm`). This should allow you to see syntax highlighting when you open files with the extension `.adder`, `.boa`, or `.cobra`.

@@ -1,6 +1,6 @@
 LANGUAGE_NAME := tree-sitter-snake
 HOMEPAGE_URL := https://github.com/nevenjohnson/tree-sitter-snake
-VERSION := 2.0.2
+VERSION := 3.0.0
 
 # repository
 SRC_DIR := src

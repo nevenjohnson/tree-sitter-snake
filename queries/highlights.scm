@@ -2,6 +2,7 @@
  "def"
  "let"
  "in"
+ "extern"
  ] @keyword
 [
  "if"
@@ -10,6 +11,7 @@
 (number) @number
 (identifier) @variable
 "main" @function
+(extern name: (identifier) @function)
 (decl name: (identifier) @function)
 (ids (identifier) @variable.parameter)
 (binop_expr call: (identifier) @function)
@@ -21,4 +23,4 @@
   (prim2)
   "="
  ] @operator
-(source_file (identifier) @variable.parameter)
+(main (identifier) @variable.parameter)

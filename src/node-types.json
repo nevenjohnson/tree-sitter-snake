@@ -176,6 +176,51 @@
     }
   },
   {
+    "type": "extern",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ids",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "externs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "extern",
+          "named": true
+        },
+        {
+          "type": "externs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ids",
     "named": true,
     "fields": {},
@@ -189,6 +234,25 @@
         },
         {
           "type": "ids",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "main",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -214,11 +278,11 @@
       "required": true,
       "types": [
         {
-          "type": "expr",
+          "type": "externs",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "main",
           "named": true
         }
       ]
@@ -302,6 +366,10 @@
   },
   {
     "type": "else",
+    "named": false
+  },
+  {
+    "type": "extern",
     "named": false
   },
   {

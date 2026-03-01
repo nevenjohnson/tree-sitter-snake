@@ -8,7 +8,8 @@
       "scope": "source.snake",
       "file-types": [
         "adder",
-        "boa"
+        "boa",
+        "cobra"
       ],
       "highlights": [
         "queries/highlights.scm"
@@ -18,7 +19,7 @@
     }
   ],
   "metadata": {
-    "version": "2.0.2",
+    "version": "3.0.0",
     "license": "MIT",
     "description": "Snake grammar for tree-sitter",
     "authors": [

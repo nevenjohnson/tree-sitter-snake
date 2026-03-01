@@ -3,6 +3,28 @@
   "name": "snake",
   "rules": {
     "source_file": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "externs"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "main"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "main"
+        }
+      ]
+    },
+    "main": {
       "type": "SEQ",
       "members": [
         {
@@ -32,6 +54,57 @@
         {
           "type": "SYMBOL",
           "name": "expr"
+        }
+      ]
+    },
+    "extern": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "extern"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ids"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "externs": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "extern"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "extern"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "externs"
+            }
+          ]
         }
       ]
     },
