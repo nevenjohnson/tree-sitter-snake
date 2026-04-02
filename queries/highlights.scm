@@ -4,6 +4,10 @@
  "in"
  ] @keyword
 [
+ "true"
+ "false"
+ ] @Boolean
+[
  "if"
  "else"
  ] @keyword.conditional
