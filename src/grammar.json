@@ -185,6 +185,68 @@
         {
           "type": "SYMBOL",
           "name": "binop_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array"
+        },
+        {
+          "type": "PREC_RIGHT",
+          "value": 9,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expr"
+              },
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr"
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_RIGHT",
+          "value": 9,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expr"
+              },
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr"
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              },
+              {
+                "type": "STRING",
+                "value": ":="
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr"
+              }
+            ]
+          }
         }
       ]
     },
@@ -388,6 +450,26 @@
         {
           "type": "STRING",
           "value": "sub1"
+        },
+        {
+          "type": "STRING",
+          "value": "newArray"
+        },
+        {
+          "type": "STRING",
+          "value": "length"
+        },
+        {
+          "type": "STRING",
+          "value": "isBool"
+        },
+        {
+          "type": "STRING",
+          "value": "isInt"
+        },
+        {
+          "type": "STRING",
+          "value": "isArray"
         }
       ]
     },
@@ -632,6 +714,41 @@
             {
               "type": "SYMBOL",
               "name": "exprs"
+            }
+          ]
+        }
+      ]
+    },
+    "array": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "["
+            },
+            {
+              "type": "STRING",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "["
+            },
+            {
+              "type": "SYMBOL",
+              "name": "exprs"
+            },
+            {
+              "type": "STRING",
+              "value": "]"
             }
           ]
         }

@@ -9,7 +9,8 @@
       "file-types": [
         "adder",
         "boa",
-        "cobra"
+        "cobra",
+        "dbk"
       ],
       "highlights": [
         "queries/highlights.scm"
@@ -19,7 +20,7 @@
     }
   ],
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "license": "MIT",
     "description": "Snake grammar for tree-sitter",
     "authors": [

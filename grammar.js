@@ -67,6 +67,25 @@ export default grammar({
         $.expr,
       ),
       $.binop_expr,
+      $.array,
+      prec.right(9,
+          seq(
+          $.expr,
+          "[",
+          $.expr,
+          "]",
+        ),
+      ),
+      prec.right(9,
+        seq(
+          $.expr,
+          "[",
+          $.expr,
+          "]",
+          ":=",
+          $.expr,
+        ),
+      ),
     ),
 
     bindings: $ => choice(
@@ -129,6 +148,11 @@ export default grammar({
     prim1: $ => choice(
       "add1",
       "sub1",
+      "newArray",
+      "length",
+      "isBool",
+      "isInt",
+      "isArray"
     ),
 
     prim2: $ => choice(
@@ -189,6 +213,18 @@ export default grammar({
         $.expr,
         ",",
         $.exprs,
+      ),
+    ),
+
+    array: $ => choice(
+      seq(
+        "[",
+        "]",
+      ),
+      seq(
+        "[",
+        $.exprs,
+        "]",
       ),
     ),
 
