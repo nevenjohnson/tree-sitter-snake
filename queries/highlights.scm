@@ -5,6 +5,10 @@
  "extern"
  ] @keyword
 [
+ "true"
+ "false"
+ ] @Boolean
+[
  "if"
  "else"
  ] @keyword.conditional
