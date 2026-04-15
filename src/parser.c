@@ -602,6 +602,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == ' ') SKIP(1);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(152);
       if (('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
           ('b' <= lookahead && lookahead <= 'z')) ADVANCE(151);
       END_STATE();
     case 2:
@@ -612,6 +613,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(3);
       if (('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(151);
       END_STATE();
     case 4:
@@ -3409,7 +3411,7 @@ TS_PUBLIC const TSLanguage *tree_sitter_snake(void) {
     .metadata = {
       .major_version = 4,
       .minor_version = 0,
-      .patch_version = 0,
+      .patch_version = 1,
     },
   };
   return &language;
